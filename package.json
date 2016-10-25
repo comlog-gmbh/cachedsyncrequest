@@ -1,0 +1,22 @@
+{
+  "name": "cachedsyncrequest",
+  "version": "1.0.0",
+  "description": "Cache addon for node's popular request module",
+  "main": "cachedsyncrequest.js",
+  "scripts": {
+    "test": "node test/test.js"
+  },
+  "keywords": [
+    "cache",
+    "request",
+    "http",
+    "https"
+  ],
+  "dependencies": {
+    "syncrequest": ">=1.3.1",
+    "cachedrequest": ">=1.1.0"
+  },
+  "author": "COMLOG GmbH",
+  "license": "ISC",
+  "repository" : "https://github.com/comlog-gmbh/cachedsyncrequest.git"
+}
