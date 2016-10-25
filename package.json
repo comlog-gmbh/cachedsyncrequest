@@ -1,13 +1,14 @@
 {
   "name": "cachedsyncrequest",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Cache addon for node's popular request module",
   "main": "cachedsyncrequest.js",
   "scripts": {
     "test": "node test/test.js"
   },
   "keywords": [
-    "cache",
+    "cached",
+    "sync",
     "request",
     "http",
     "https"

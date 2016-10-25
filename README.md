@@ -32,3 +32,11 @@ request.clearCache(function(errors, removed) {
     console.info(removed);
 });
 ```
+
+#### Original request function can be used:
+```javascript
+var request = require('cachedsyncrequest');
+request.cached.sync('http://www.comlog.org', function(err, response, body) {
+	console.info(body);
+});
+```
