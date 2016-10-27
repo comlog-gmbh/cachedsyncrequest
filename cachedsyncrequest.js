@@ -18,7 +18,7 @@ var
 
 var uriToCachePath = function(uri) {
     var md5sum = _crypto.createHash('md5');
-    md5sum.update(uri);
+    md5sum.update(uri && uri.uri ? uri.uri : (uri && uri.url ? uri.url : uri));
     return _path.normalize(cacheDirectory + _path.sep + prefix + md5sum.digest('hex') + '.json');
 }
 
