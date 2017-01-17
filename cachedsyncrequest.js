@@ -23,6 +23,9 @@ var uriToCachePath = function(uri) {
 }
 
 var saveCache = function(uri, data) {
+    if (!data) data = {};
+    if (!data.headers) data.headers = {};
+
     // Expires from cache-control
     if (!data.headers['expires'] && data.headers['cache-control']) {
         var maxAgePos = -1;
