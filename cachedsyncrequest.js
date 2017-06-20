@@ -44,7 +44,7 @@ var saveCache = function(uri, data) {
 
     // no-cache
     if (data.headers['pragma'] && data.headers['pragma'].toUpperCase().indexOf('NO-CACHE') > -1) {
-        callback(null, null);
+        return null;
     }
 
     // expired
