@@ -16,6 +16,30 @@ var
     crExtend = require(cachedrequestPath),
     request = crExtend(srExtend(require('request')));
 
+/* !-- Temp verzeichniss oder Link Finden --> */
+try {
+	if (!_fs.statSync(cacheDirectory).isDirectory()) {
+		throw new Error('Kein temp');
+	}
+} catch (e) {
+	var check = [
+		_path.dirname(__filename)+_path.sep+'temp',
+		_path.dirname(_path.dirname(__filename))+_path.sep+'temp',
+		_path.dirname(_path.dirname(_path.dirname(__filename)))+_path.sep+'temp',
+		_path.dirname(_path.dirname(_path.dirname(_path.dirname(__filename))))+_path.sep+'temp'
+	];
+	while(check.length > 0) {
+		var p = check.shift();
+		try {
+			if (_fs.statSync(p).isDirectory()) {
+				cacheDirectory = p;
+				break;
+			}
+		} catch (e) {}
+	}
+}
+/* <-- Temp verzeichniss oder Link Finden --! */
+
 var uriToCachePath = function(uri) {
     var md5sum = _crypto.createHash('md5');
     md5sum.update(uri && uri.uri ? uri.uri : (uri && uri.url ? uri.url : uri));
